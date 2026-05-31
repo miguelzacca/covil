@@ -785,7 +785,8 @@ footer p {
     gap: 1rem;
   }
 
-  .btn-primary, .btn-ghost {
+  .btn-primary,
+  .btn-ghost {
     width: 100%;
   }
 

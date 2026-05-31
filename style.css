@@ -743,25 +743,57 @@ footer p {
 }
 
 @media (max-width: 768px) {
+  section {
+    padding: 4rem 5%;
+  }
+
   .navbar {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
     padding: 1rem 5%;
+  }
+
+  .navbar .logo {
+    font-size: 1.3rem;
+  }
+
+  .navbar .btn-outline {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
   }
 
   .input-row {
     grid-template-columns: 1fr;
   }
 
+  .options {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
   .glitch {
-    font-size: 3.5rem;
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .hero-actions {
     flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .btn-primary, .btn-ghost {
+    width: 100%;
   }
 
   .form-container {
+    padding: 1.5rem;
+  }
+
+  .feature-card {
     padding: 1.5rem;
   }
 }

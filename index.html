@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covil | Clube de Luta Clandestino</title>
+    <meta name="description" content="Covil - Evento exclusivo de luta clandestina, apostas, bebidas e tabaco em Tijucas/SC. Solicite seu acesso ao clube privado.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    
+    <nav class="navbar">
+        <div class="logo">COVIL</div>
+        <a href="#solicitar-acesso" class="btn-outline">Solicitar Acesso</a>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h2 class="location">Tijucas / SC</h2>
+            <h1 class="glitch" data-text="COVIL">COVIL</h1>
+            <p class="subtitle">Onde a alta sociedade encontra o submundo.</p>
+            <div class="hero-actions">
+                <a href="#sobre" class="btn-ghost">Descobrir</a>
+                <a href="#solicitar-acesso" class="btn-primary">Entrar no Clube</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="section-header">
+                <h2>A Experiência</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="features">
+                <div class="feature-card reveal">
+                    <div class="icon">🩸</div>
+                    <h3>Lutas Clandestinas</h3>
+                    <p>Combates viscerais e sem regras tradicionais. Apenas os mais fortes sobrevivem na arena do Covil.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon">🎲</div>
+                    <h3>Apostas de Alto Risco</h3>
+                    <p>Faça suas fortunas ou perca tudo. O mercado negro de apostas pulsa a cada golpe.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon">🥃</div>
+                    <h3>Bebidas Premium</h3>
+                    <p>Destilados raros e envelhecidos. Uma seleção rigorosa para paladares que exigem o melhor.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon">🚬</div>
+                    <h3>Tabaco & Charutos</h3>
+                    <p>Lounges densos em fumaça de charutos cubanos importados. A atmosfera perfeita para negócios obscuros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="application" id="solicitar-acesso">
+        <div class="container">
+            <div class="application-wrapper reveal">
+                <div class="form-info">
+                    <h2>Sangue & Honra</h2>
+                    <p>O Covil não é para qualquer um. Somos um clube estritamente privado. Preencha o formulário com total honestidade. Avaliaremos seu perfil e, se for aceito, entraremos em contato com as coordenadas do próximo evento em Tijucas.</p>
+                    <div class="warning-box">
+                        <strong>AVISO:</strong> Disrição é fundamental. Qualquer vazamento de informações resultará em banimento imediato e consequências.
+                    </div>
+                </div>
+                <div class="form-container">
+                    <form id="covil-form">
+                        <div class="input-group">
+                            <label for="name">Nome Completo (ou Pseudônimo)</label>
+                            <input type="text" id="name" name="name" required placeholder="Como devemos chamá-lo?">
+                        </div>
+                        
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="age">Idade</label>
+                                <input type="number" id="age" name="age" required min="18" placeholder="+18 apenas">
+                            </div>
+                            <div class="input-group">
+                                <label for="occupation">Profissão/Trabalho</label>
+                                <input type="text" id="occupation" name="occupation" required placeholder="O que você faz?">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="hobbies">O que gosta de fazer no tempo livre?</label>
+                            <textarea id="hobbies" name="hobbies" rows="2" required placeholder="Seus interesses ocultos..."></textarea>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="watch-fights">Você assiste lutas? Quais?</label>
+                            <input type="text" id="watch-fights" name="watch-fights" required placeholder="UFC, Boxe, Lutas de rua...">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="practice-fights">Sabe lutar ou pratica artes marciais?</label>
+                            <input type="text" id="practice-fights" name="practice-fights" required placeholder="Qual modalidade e tempo de experiência? (Ou 'Não')">
+                        </div>
+
+                        <div class="radio-group-container">
+                            <div class="radio-group">
+                                <label class="group-label">Você fuma?</label>
+                                <div class="options">
+                                    <label><input type="radio" name="smoke" value="Sim" required> Sim</label>
+                                    <label><input type="radio" name="smoke" value="Não"> Não</label>
+                                    <label><input type="radio" name="smoke" value="Ocasionalmente"> Ocasionalmente</label>
+                                </div>
+                            </div>
+
+                            <div class="radio-group">
+                                <label class="group-label">Consome bebidas alcoólicas?</label>
+                                <div class="options">
+                                    <label><input type="radio" name="drink" value="Sim" required> Sim</label>
+                                    <label><input type="radio" name="drink" value="Não"> Não</label>
+                                    <label><input type="radio" name="drink" value="Ocasionalmente"> Ocasionalmente</label>
+                                </div>
+                            </div>
+
+                            <div class="radio-group">
+                                <label class="group-label">Pretende apostar nos combates?</label>
+                                <div class="options">
+                                    <label><input type="radio" name="bet" value="Sim" required> Sim, pesado</label>
+                                    <label><input type="radio" name="bet" value="Diversão"> Apenas diversão</label>
+                                    <label><input type="radio" name="bet" value="Não"> Não</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="reason">Por que o Covil deve aceitar você?</label>
+                            <textarea id="reason" name="reason" rows="3" required placeholder="Prove seu valor..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar Pedido de Acesso</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2 class="logo">COVIL</h2>
+            <p>Tijucas, Santa Catarina.</p>
+            <p class="copyright">© 2026 Covil. Todos os direitos reservados. Não fale sobre o Covil.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

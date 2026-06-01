@@ -16,6 +16,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none !important;
 }
 
 html {
@@ -1010,7 +1011,7 @@ body {
   pointer-events: none;
   z-index: 10000;
   mix-blend-mode: difference;
-  transform: translate(-50%, -50%) !important;
+  transform: translate(-50%, -50%);
   transition:
     width 0.3s ease,
     height 0.3s ease,
@@ -1021,7 +1022,6 @@ body {
 .cursor.active {
   width: 40px;
   height: 40px;
-  transform: translate(-50%, -50%);
   background-color: transparent;
   border: 2px solid var(--accent-red);
 }

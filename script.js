@@ -32,32 +32,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Custom Cursor
   const cursor = document.querySelector('.cursor')
-  const clickableElements = document.querySelectorAll('a, button, input[type="radio"], input[type="checkbox"], label, .feature-card')
+  const clickableElements = document.querySelectorAll(
+    'a, button, input[type="radio"], input[type="checkbox"], label, .feature-card',
+  )
 
   if (cursor) {
     document.addEventListener('mousemove', (e) => {
       cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
     })
 
-    clickableElements.forEach((el) => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('active'))
-      el.addEventListener('mouseleave', () => cursor.classList.remove('active'))
-    })
+    // clickableElements.forEach((el) => {
+    //   el.addEventListener('mouseenter', () => cursor.classList.add('active'))
+    //   el.addEventListener('mouseleave', () => cursor.classList.remove('active'))
+    // })
   }
 
   // Magnetic Buttons
-  const magneticButtons = document.querySelectorAll('.btn-primary, .btn-outline')
+  const magneticButtons = document.querySelectorAll(
+    '.btn-primary, .btn-outline',
+  )
   magneticButtons.forEach((btn) => {
     btn.addEventListener('mousemove', (e) => {
       const rect = btn.getBoundingClientRect()
       const x = e.clientX - rect.left - rect.width / 2
       const y = e.clientY - rect.top - rect.height / 2
-      
+
       gsap.to(btn, {
         duration: 0.3,
         x: x * 0.2,
         y: y * 0.2,
-        ease: 'power2.out'
+        ease: 'power2.out',
       })
     })
 
@@ -66,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.7,
         x: 0,
         y: 0,
-        ease: 'elastic.out(1, 0.3)'
+        ease: 'elastic.out(1, 0.3)',
       })
     })
   })
@@ -76,67 +80,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Preloader & Intro Sequence
   const tlIntro = gsap.timeline()
-  
+
   // Prevent scrolling during preloader
   document.body.style.overflow = 'hidden'
 
-  tlIntro.to('.loading-bar', {
-    width: '100%',
-    duration: 1.5,
-    ease: 'power2.inOut'
-  })
-  .to('.preloader .logo', {
-    opacity: 1,
-    y: 0,
-    duration: 0.5,
-    ease: 'power2.out'
-  }, '-=0.5')
-  .to('.preloader', {
-    yPercent: -100,
-    duration: 1,
-    ease: 'power4.inOut',
-    delay: 0.3,
-    onComplete: () => {
-      document.body.style.overflow = ''
-    }
-  })
-  .fromTo('.hero-content .location', 
-    { autoAlpha: 0, y: 20 },
-    { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-    '-=0.5'
-  )
-  .fromTo('.hero-content .glitch',
-    { autoAlpha: 0, scale: 0.9 },
-    { autoAlpha: 1, scale: 1, duration: 1, ease: 'power3.out' },
-    '-=0.6'
-  )
-  .fromTo('.hero-content .subtitle',
-    { autoAlpha: 0, y: 20 },
-    { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-    '-=0.7'
-  )
-  .fromTo('.hero-content .hero-actions',
-    { autoAlpha: 0, y: 20 },
-    { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
-    '-=0.6'
-  )
+  tlIntro
+    .to('.loading-bar', {
+      width: '100%',
+      duration: 1.5,
+      ease: 'power2.inOut',
+    })
+    .to(
+      '.preloader .logo',
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      },
+      '-=0.5',
+    )
+    .to('.preloader', {
+      yPercent: -100,
+      duration: 1,
+      ease: 'power4.inOut',
+      delay: 0.3,
+      onComplete: () => {
+        document.body.style.overflow = ''
+      },
+    })
+    .fromTo(
+      '.hero-content .location',
+      { autoAlpha: 0, y: 20 },
+      { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      '-=0.5',
+    )
+    .fromTo(
+      '.hero-content .glitch',
+      { autoAlpha: 0, scale: 0.9 },
+      { autoAlpha: 1, scale: 1, duration: 1, ease: 'power3.out' },
+      '-=0.6',
+    )
+    .fromTo(
+      '.hero-content .subtitle',
+      { autoAlpha: 0, y: 20 },
+      { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      '-=0.7',
+    )
+    .fromTo(
+      '.hero-content .hero-actions',
+      { autoAlpha: 0, y: 20 },
+      { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      '-=0.6',
+    )
 
   // Scroll Animations
-  
+
   // Hero Parallax
   gsap.to('.hero', {
     scrollTrigger: {
       trigger: '.hero',
       start: 'top top',
       end: 'bottom top',
-      scrub: true
+      scrub: true,
     },
     yPercent: 30,
-    ease: 'none'
+    ease: 'none',
   })
 
   // About Features Stagger
-  gsap.fromTo('.feature-card',
+  gsap.fromTo(
+    '.feature-card',
     { autoAlpha: 0, y: 50, rotationY: 15 },
     {
       scrollTrigger: {
@@ -148,12 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
       rotationY: 0,
       duration: 0.8,
       stagger: 0.2,
-      ease: 'power3.out'
-    }
+      ease: 'power3.out',
+    },
   )
 
   // Application Section Reveal
-  gsap.fromTo('.application-wrapper',
+  gsap.fromTo(
+    '.application-wrapper',
     { autoAlpha: 0, y: 50 },
     {
       scrollTrigger: {
@@ -163,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
       autoAlpha: 1,
       y: 0,
       duration: 1,
-      ease: 'power3.out'
-    }
+      ease: 'power3.out',
+    },
   )
 
   // Multi-step Form Logic

@@ -269,33 +269,72 @@ document.addEventListener('DOMContentLoaded', () => {
       ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + '%'
   }
 
-  // Form submission handling (Mock for now since there's no backend)
+  // Form submission handling
   const form = document.getElementById('covil-form')
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault()
 
       const submitBtn = form.querySelector('.btn-submit')
 
       // Visual feedback
-      submitBtn.textContent = 'Selando com Sangue...'
+      submitBtn.textContent = 'Gerando Pagamento...'
       submitBtn.style.background = '#333'
       submitBtn.disabled = true
 
-      // Simulate network request
-      setTimeout(() => {
-        const formContainer = document.querySelector('.form-container')
+      const formData = new FormData(form);
+      const name = formData.get('name');
+      const contact = formData.get('contact');
 
-        // Show success state
-        formContainer.innerHTML = `
-                    <div style="text-align: center; padding: 2rem; animation: fadeIn 1s;">
-                        <h3 style="color: var(--accent-red); font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Pedido Recebido</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Seu pedido foi selado. Suas informações estão sob análise do sindicato.<br/>Se você for considerado digno, nós o encontraremos.</p>
-                        <div style="font-size: 4rem; text-shadow: 0 0 20px var(--accent-red-glow);">🩸</div>
-                    </div>
-                `
-      }, 2000)
+      try {
+        const response = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, contact })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.paymentUrl) {
+          throw new Error(data.error || 'Erro ao gerar pagamento');
+        }
+
+        // Redirect to InfinitePay checkout
+        window.location.href = data.paymentUrl;
+      } catch (error) {
+        console.error('Erro de pagamento:', error);
+        alert('Ocorreu um erro ao processar o pagamento da taxa: ' + error.message);
+        
+        submitBtn.textContent = 'Assinar com Sangue (Enviar)'
+        submitBtn.style.background = ''
+        submitBtn.disabled = false
+      }
     })
+  }
+
+  // Check for success param on load
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    // Scroll to the application section
+    const appSection = document.getElementById('solicitar-acesso');
+    if (appSection) {
+      setTimeout(() => {
+        appSection.scrollIntoView({ behavior: 'smooth' });
+        const formContainer = document.querySelector('.form-container');
+        if (formContainer) {
+          formContainer.innerHTML = `
+            <div style="text-align: center; padding: 2rem; animation: fadeIn 1s;">
+              <h3 style="color: var(--accent-red); font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Pedido Recebido e Pago</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 2rem;">Sua taxa foi paga e o pedido selado. Suas informações estão sob análise do sindicato.<br/>Se você for considerado digno, nós o encontraremos.</p>
+              <div style="font-size: 4rem; text-shadow: 0 0 20px var(--accent-red-glow);">🩸</div>
+            </div>
+          `;
+        }
+      }, 500);
+      
+      // Clean up URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
   }
 })

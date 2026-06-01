@@ -1010,7 +1010,7 @@ body {
   pointer-events: none;
   z-index: 10000;
   mix-blend-mode: difference;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
   transition:
     width 0.3s ease,
     height 0.3s ease,

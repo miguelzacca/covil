@@ -100,168 +100,240 @@
           </div>
           <div class="form-container">
             <form id="covil-form">
-              <div class="input-group">
-                <label for="name">Nome Completo (ou Pseudônimo)</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  placeholder="Como devemos chamá-lo?"
-                />
+              <!-- ProgressBar -->
+              <div class="progressbar">
+                <div class="progress" id="progress"></div>
+                <div
+                  class="progress-step progress-step-active"
+                  data-title="Identidade"
+                ></div>
+                <div class="progress-step" data-title="Hábitos"></div>
+                <div class="progress-step" data-title="A Rinha"></div>
               </div>
 
-              <div class="input-group">
-                <label for="contact">WhatsApp / Telefone</label>
-                <input
-                  type="tel"
-                  id="contact"
-                  name="contact"
-                  required
-                  placeholder="(DDD) 9XXXX-XXXX"
-                />
-              </div>
-
-              <div class="input-row">
+              <!-- Step 1 -->
+              <div class="form-step form-step-active">
+                <h3 class="step-title">Passo 1: Identidade</h3>
                 <div class="input-group">
-                  <label for="age">Idade</label>
-                  <input
-                    type="number"
-                    id="age"
-                    name="age"
-                    required
-                    min="18"
-                    placeholder="+18 apenas"
-                  />
-                </div>
-                <div class="input-group">
-                  <label for="occupation">Profissão/Trabalho</label>
+                  <label for="name">Nome Completo (ou Pseudônimo)</label>
                   <input
                     type="text"
-                    id="occupation"
-                    name="occupation"
+                    id="name"
+                    name="name"
                     required
-                    placeholder="O que você faz?"
+                    placeholder="Como devemos chamá-lo?"
                   />
                 </div>
-              </div>
 
-              <div class="input-group">
-                <label for="hobbies"
-                  >O que gosta de fazer no tempo livre?</label
-                >
-                <textarea
-                  id="hobbies"
-                  name="hobbies"
-                  rows="2"
-                  required
-                  placeholder="Seus interesses ocultos..."
-                ></textarea>
-              </div>
+                <div class="input-group">
+                  <label for="contact">WhatsApp / Telefone</label>
+                  <input
+                    type="tel"
+                    id="contact"
+                    name="contact"
+                    required
+                    placeholder="(DDD) 9XXXX-XXXX"
+                  />
+                </div>
 
-              <div class="input-group">
-                <label for="watch-fights">Você assiste lutas? Quais?</label>
-                <input
-                  type="text"
-                  id="watch-fights"
-                  name="watch-fights"
-                  required
-                  placeholder="UFC, Boxe, Lutas de rua..."
-                />
-              </div>
-
-              <div class="input-group">
-                <label for="practice-fights"
-                  >Sabe lutar ou pratica artes marciais?</label
-                >
-                <input
-                  type="text"
-                  id="practice-fights"
-                  name="practice-fights"
-                  required
-                  placeholder="Qual modalidade e tempo de experiência? (Ou 'Não')"
-                />
-              </div>
-
-              <div class="radio-group-container">
-                <div class="radio-group">
-                  <label class="group-label">Você fuma?</label>
-                  <div class="options">
-                    <label
-                      ><input type="radio" name="smoke" value="Sim" required />
-                      Sim</label
-                    >
-                    <label
-                      ><input type="radio" name="smoke" value="Não" />
-                      Não</label
-                    >
-                    <label
-                      ><input
-                        type="radio"
-                        name="smoke"
-                        value="Ocasionalmente"
-                      />
-                      Ocasionalmente</label
-                    >
+                <div class="input-row">
+                  <div class="input-group">
+                    <label for="age">Idade</label>
+                    <input
+                      type="number"
+                      id="age"
+                      name="age"
+                      required
+                      min="18"
+                      placeholder="+18 apenas"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <label for="occupation">Profissão/Trabalho</label>
+                    <input
+                      type="text"
+                      id="occupation"
+                      name="occupation"
+                      required
+                      placeholder="O que você faz?"
+                    />
                   </div>
                 </div>
 
-                <div class="radio-group">
-                  <label class="group-label">Consome bebidas alcoólicas?</label>
-                  <div class="options">
-                    <label
-                      ><input type="radio" name="drink" value="Sim" required />
-                      Sim</label
-                    >
-                    <label
-                      ><input type="radio" name="drink" value="Não" />
-                      Não</label
-                    >
-                    <label
-                      ><input
-                        type="radio"
-                        name="drink"
-                        value="Ocasionalmente"
-                      />
-                      Ocasionalmente</label
-                    >
-                  </div>
+                <div class="form-actions">
+                  <button type="button" class="btn-next btn-primary">
+                    Próximo
+                  </button>
                 </div>
+              </div>
 
-                <div class="radio-group">
-                  <label class="group-label"
-                    >Pretende apostar nos combates?</label
+              <!-- Step 2 -->
+              <div class="form-step">
+                <h3 class="step-title">Passo 2: Hábitos</h3>
+                <div class="input-group">
+                  <label for="hobbies"
+                    >O que gosta de fazer no tempo livre?</label
                   >
-                  <div class="options">
-                    <label
-                      ><input type="radio" name="bet" value="Sim" required />
-                      Sim, pesado</label
-                    >
-                    <label
-                      ><input type="radio" name="bet" value="Diversão" /> Apenas
-                      diversão</label
-                    >
-                    <label
-                      ><input type="radio" name="bet" value="Não" /> Não</label
-                    >
-                  </div>
+                  <textarea
+                    id="hobbies"
+                    name="hobbies"
+                    rows="2"
+                    required
+                    placeholder="Seus interesses ocultos..."
+                  ></textarea>
+                </div>
+
+                <div class="input-group">
+                  <label for="watch-fights">Você assiste lutas? Quais?</label>
+                  <input
+                    type="text"
+                    id="watch-fights"
+                    name="watch-fights"
+                    required
+                    placeholder="UFC, Boxe, Lutas de rua..."
+                  />
+                </div>
+
+                <div class="input-group">
+                  <label for="practice-fights"
+                    >Sabe lutar ou pratica artes marciais?</label
+                  >
+                  <input
+                    type="text"
+                    id="practice-fights"
+                    name="practice-fights"
+                    required
+                    placeholder="Qual modalidade e tempo de experiência? (Ou 'Não')"
+                  />
+                </div>
+
+                <div class="form-actions form-actions-group">
+                  <button type="button" class="btn-prev btn-outline">
+                    Voltar
+                  </button>
+                  <button type="button" class="btn-next btn-primary">
+                    Próximo
+                  </button>
                 </div>
               </div>
 
-              <div class="input-group">
-                <label for="reason">Por que quer entrar no Covil?</label>
-                <textarea
-                  id="reason"
-                  name="reason"
-                  rows="3"
-                  required
-                  placeholder="Diga pra gente o motivo..."
-                ></textarea>
-              </div>
+              <!-- Step 3 -->
+              <div class="form-step">
+                <h3 class="step-title">Passo 3: A Rinha</h3>
+                <div class="radio-group-container">
+                  <div class="radio-group">
+                    <label class="group-label">Você fuma?</label>
+                    <div class="options">
+                      <label
+                        ><input
+                          type="radio"
+                          name="smoke"
+                          value="Sim"
+                          required
+                        />
+                        Sim</label
+                      >
+                      <label
+                        ><input type="radio" name="smoke" value="Não" />
+                        Não</label
+                      >
+                      <label
+                        ><input
+                          type="radio"
+                          name="smoke"
+                          value="Ocasionalmente"
+                        />
+                        Ocasionalmente</label
+                      >
+                    </div>
+                  </div>
 
-              <button type="submit" class="btn-submit">
-                Enviar Pedido de Acesso
-              </button>
+                  <div class="radio-group">
+                    <label class="group-label"
+                      >Consome bebidas alcoólicas?</label
+                    >
+                    <div class="options">
+                      <label
+                        ><input
+                          type="radio"
+                          name="drink"
+                          value="Sim"
+                          required
+                        />
+                        Sim</label
+                      >
+                      <label
+                        ><input type="radio" name="drink" value="Não" />
+                        Não</label
+                      >
+                      <label
+                        ><input
+                          type="radio"
+                          name="drink"
+                          value="Ocasionalmente"
+                        />
+                        Ocasionalmente</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="radio-group">
+                    <label class="group-label"
+                      >Pretende apostar nos combates?</label
+                    >
+                    <div class="options">
+                      <label
+                        ><input type="radio" name="bet" value="Sim" required />
+                        Sim, pesado</label
+                      >
+                      <label
+                        ><input type="radio" name="bet" value="Diversão" />
+                        Apenas diversão</label
+                      >
+                      <label
+                        ><input type="radio" name="bet" value="Não" />
+                        Não</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <label for="reason">Por que quer entrar no Covil?</label>
+                  <textarea
+                    id="reason"
+                    name="reason"
+                    rows="3"
+                    required
+                    placeholder="Diga pra gente o motivo..."
+                  ></textarea>
+                </div>
+
+                <div class="blood-oath-container">
+                  <label class="blood-oath-label">
+                    <input
+                      type="checkbox"
+                      id="blood-oath"
+                      name="blood-oath"
+                      required
+                    />
+                    <span class="custom-checkbox"></span>
+                    <span class="oath-text"
+                      >Juro manter sigilo sobre a existência e localização do
+                      Covil, sob pena de banimento permanente.</span
+                    >
+                  </label>
+                </div>
+
+                <div class="form-actions form-actions-group">
+                  <button type="button" class="btn-prev btn-outline">
+                    Voltar
+                  </button>
+                  <button type="submit" class="btn-submit">
+                    Assinar com Sangue (Enviar)
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
         </div>

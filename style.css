@@ -661,6 +661,159 @@ input[type='radio'] {
   box-shadow: 0 0 25px var(--accent-red-glow);
 }
 
+/* Multi-step Form */
+.progressbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  counter-reset: step;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+}
+
+.progressbar::before,
+.progress {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.progress {
+  background-color: var(--accent-red);
+  width: 0%;
+  transition: 0.3s ease;
+}
+
+.progress-step {
+  width: 2.1875rem;
+  height: 2.1875rem;
+  background-color: var(--surface-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-weight: bold;
+  position: relative;
+  transition: var(--transition);
+}
+
+.progress-step::before {
+  counter-increment: step;
+  content: counter(step);
+}
+
+.progress-step::after {
+  content: attr(data-title);
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
+
+.progress-step-active {
+  background-color: var(--accent-red);
+  color: white;
+  border-color: var(--accent-red);
+  box-shadow: 0 0 10px var(--accent-red-glow);
+}
+
+.progress-step-active::after {
+  color: var(--text-primary);
+}
+
+.form-step {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+.form-step-active {
+  display: block;
+}
+
+.step-title {
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(205, 160, 82, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.form-actions-group {
+  justify-content: space-between;
+}
+
+.form-actions .btn-primary,
+.form-actions .btn-outline,
+.form-actions .btn-submit {
+  margin-top: 0;
+  width: auto;
+}
+
+.blood-oath-container {
+  margin-top: 2rem;
+  background: rgba(209, 17, 17, 0.05);
+  border: 1px dashed var(--accent-red);
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.blood-oath-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: normal;
+  margin-bottom: 0;
+}
+
+.blood-oath-label input {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--accent-red);
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+  margin-top: 2px;
+}
+
+.blood-oath-label input:checked + .custom-checkbox {
+  background-color: var(--accent-red);
+  box-shadow: 0 0 10px var(--accent-red-glow);
+}
+
+.blood-oath-label input:checked + .custom-checkbox::after {
+  content: '🩸';
+  font-size: 14px;
+}
+
 /* Footer */
 footer {
   background: #000;
@@ -788,6 +941,17 @@ footer p {
 
   .btn-primary,
   .btn-ghost {
+    width: 100%;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  .form-actions .btn-primary,
+  .form-actions .btn-outline,
+  .form-actions .btn-submit {
     width: 100%;
   }
 

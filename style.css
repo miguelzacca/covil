@@ -897,6 +897,10 @@ footer p {
 }
 
 @media (max-width: 768px) {
+  .cursor {
+    display: none !important;
+  }
+
   section {
     padding: 4rem 5%;
   }
@@ -969,7 +973,8 @@ footer p {
 /* ------------------------------------- */
 
 /* Lenis */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -1006,7 +1011,10 @@ body {
   z-index: 10000;
   mix-blend-mode: difference;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    background-color 0.3s ease;
   will-change: transform, width, height;
 }
 
@@ -1053,9 +1061,14 @@ body {
 }
 
 /* Fix visibility for ScrollTrigger */
-.feature-card, .application-wrapper, .hero-content .location, .hero-content .glitch, .hero-content .subtitle, .hero-content .hero-actions {
+.feature-card,
+.application-wrapper,
+.hero-content .location,
+.hero-content .glitch,
+.hero-content .subtitle,
+.hero-content .hero-actions {
   /* GSAP will animate from 0 */
-  opacity: 0; 
+  opacity: 0;
   visibility: hidden;
 }
 
